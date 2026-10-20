@@ -1,0 +1,9 @@
+{
+  "snapshot": "2026-10-20 15:23 preserved version",
+  "published": "2026-10-21",
+  "executable": "iCUE-Replica.exe",
+  "sha256": "e99547d7a020eaad6da2b4338740d647168be6356445809ba75f13c0435e35c3",
+  "binaryRebuiltForPublication": false,
+  "screenshots": "Rendered by original executable --verify with isolated test settings; no live telemetry",
+  "releaseScope": "UI demo; optional sensor/LCD/widget runtime binaries omitted"
+}

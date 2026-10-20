@@ -1,0 +1,17 @@
+﻿using System;
+using System.Linq;
+using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Controls;
+namespace CueStudio { public partial class MainWindow {
+System.Windows.Forms.NotifyIcon trayIcon;System.Drawing.Icon trayArtwork;
+void InitializeDesktopFeatures(){SetOption("desktopWidget","0");ApplyTray();Closed+=delegate{if(trayIcon!=null){trayIcon.Visible=false;trayIcon.Dispose();}if(trayArtwork!=null)trayArtwork.Dispose();};}
+  void RestoreMain(){Show();if(WindowState==WindowState.Minimized)WindowState=WindowState.Normal;Activate();}
+  void SetTray(bool enabled){SetOption("showTray",enabled?"1":"0");ApplyTray();}
+  void ApplyTray(){bool enabled=Option("showTray","0")=="1";if(!enabled){if(trayIcon!=null)trayIcon.Visible=false;if(!IsVisible&&IsLoaded)RestoreMain();return;}if(trayIcon==null){using(var stream=System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream("icue-app.ico"))trayArtwork=new System.Drawing.Icon(stream);trayIcon=new System.Windows.Forms.NotifyIcon{Icon=trayArtwork,Text="iCUE · 界面复刻预览"};var menu=new System.Windows.Forms.ContextMenuStrip();menu.Items.Add("显示主窗口",null,(s,e)=>Dispatcher.Invoke(new Action(RestoreMain)));menu.Items.Add("隐藏主窗口",null,(s,e)=>Dispatcher.Invoke(new Action(Hide)));menu.Items.Add("启用／暂停 Win+W 小组件",null,(s,e)=>Dispatcher.Invoke(new Action(()=>{SetOption("winWidgetsEnabled",Option("winWidgetsEnabled","1")=="1"?"0":"1");})));menu.Items.Add(new System.Windows.Forms.ToolStripSeparator());menu.Items.Add("隐藏托盘图标",null,(s,e)=>Dispatcher.Invoke(new Action(()=>{SetTray(false);Build();})));menu.Items.Add("退出副本",null,(s,e)=>Dispatcher.Invoke(new Action(Close)));trayIcon.ContextMenuStrip=menu;trayIcon.DoubleClick+=delegate{Dispatcher.Invoke(new Action(RestoreMain));};}trayIcon.Visible=true;}
+
+void RenderWidget(){}
+void VerifyDesktopFeatures(System.Collections.Generic.List<string> log){SetTray(true);if(trayIcon==null||!trayIcon.Visible)throw new Exception("托盘启用失败");Hide();SetTray(false);if(trayIcon.Visible||!IsVisible)throw new Exception("托盘恢复窗口失败");log.Add("Tray toggle and restore main window: OK; Win+W provider requires separate package registration.");}
+void DesktopSettings(Canvas c){Label(c,"显示托盘图标",16,392,200,24);Toggle(c,Option("showTray","0")=="1",224,392,SetTray);Label(c,"Win+W 小组件更新",16,432,200,24);Toggle(c,Option("winWidgetsEnabled","1")=="1",224,432,v=>SetOption("winWidgetsEnabled",v?"1":"0"));Label(c,"在 Windows 小组件面板中添加「iCUE 传感器预览」。",16,472,448,24,11,muted);var choices=new Dictionary<string,string>{{"不显示","none"},{"CPU 封装温度","CPU 温度"},{"GPU 温度（原版测点 #1）","GPU 温度"},{"冷却液温度","冷却液温度"}};foreach(var pair in OriginalTelemetry.Temperatures()){string label=pair.Key.Substring(9).Split('|')[0]+" · "+pair.Value.Name;choices[label]=pair.Key;}for(int i=0;i<3;i++){int index=i;string key=Option("widgetSensor"+i,new[]{"CPU 温度","GPU 温度","冷却液温度"}[i]);string selected=choices.FirstOrDefault(k=>k.Value==key).Key;if(selected==null){selected=key;choices[selected]=key;}Label(c,"温度 "+(i+1),16,508+i*36,100,24);Select(c,choices.Keys.ToArray(),selected,128,508+i*36,336,v=>SetOption("widgetSensor"+index,choices[v]));}Label(c,"小组件显示曲线",16,624,200,24);Toggle(c,Option("widgetCharts","0")=="1",224,624,v=>SetOption("widgetCharts",v?"1":"0"));Label(c,"可选 1–3 个温度；选“不显示”隐藏该项。曲线为近期真实采样。",16,660,448,30,10,muted);}
+
+}}

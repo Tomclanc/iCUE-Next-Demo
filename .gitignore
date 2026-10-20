@@ -1,0 +1,13 @@
+/iCUE-Replica.exe
+*.dll
+*.zip
+*.msix
+*.pfx
+*.cer
+bin/
+obj/
+__pycache__/
+*.pyc
+*.log
+test-settings.xml
+/Apply-IcueCooling.ps1
