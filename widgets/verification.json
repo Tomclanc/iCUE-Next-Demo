@@ -1,0 +1,17 @@
+{
+  "release": "widgets-2026-10-23",
+  "officialPackageVersion": "1.0.0.5",
+  "migrationPackageVersion": "1.0.0.13",
+  "liveBridgeFirstDataSeconds": 0.359,
+  "delayedServiceFirstDataSeconds": 2.313,
+  "deliberateServiceDelaySeconds": 2,
+  "reconnectSeconds": 1.141,
+  "installedProviderFirstPushSeconds": 2.703,
+  "firstPushTemperatureRows": 3,
+  "firstPushRealCharts": 3,
+  "firstPushMissingData": false,
+  "firstPushPendingChart": false,
+  "publicSourceBuild": "passed",
+  "firstPresentationAndChartSelfTests": "passed",
+  "limitations": "Timing results are single-machine observations. Full OS reboot and general cross-device compatibility are not validated."
+}

@@ -1,5 +1,8 @@
 # iCUE Next · Personal UI Demo
 
+> **2026-10-23 新增独立发布：原版 iCUE 传感器小组件。** 修复启动连接慢和首次打开先显示无数据再出现曲线的问题；支持双击打开原版 iCUE。无需运行 Next Demo。[下载小组件](https://github.com/Tomclanc/iCUE-Next-Demo/releases/tag/widgets-2026-10-23) · [安装与源码构建说明](widgets/README.md)。原来的 **15:23 Demo 发布包和效果图保持不变**。以下 Demo 说明中的“不附带小组件/传感器桥”仅指原 UI Demo ZIP；小组件另包提供，官方界面补丁仍未发布。
+
+
 **按我个人审美做的一个 iCUE 界面 demo。**
 
 主要是想试试：如果保留熟悉的设备页面和操作布局，把亮色、深色、圆角、卡片和 Windows 11 的观感重新整理一下，会是什么样子。

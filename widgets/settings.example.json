@@ -1,0 +1,8 @@
+{
+  "winWidgetsEnabled": "1",
+  "widgetSensor0": "CPU 温度",
+  "widgetSensor1": "GPU 温度",
+  "widgetSensor2": "冷却液温度",
+  "widgetCharts": "1",
+  "fahrenheit": "0"
+}

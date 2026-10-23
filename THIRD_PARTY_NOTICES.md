@@ -8,3 +8,6 @@ This repository is an unofficial personal UI demo. It is not affiliated with COR
 - Windows / .NET Framework / WPF / NVIDIA are names of their respective owners. These systems are not distributed with this demo.
 
 No blanket open-source license is asserted over third-party visual materials. No project-wide license grant is added in this publication.
+
+
+独立发布的 Windows 小组件依赖及许可证见 [widgets/THIRD_PARTY.md](widgets/THIRD_PARTY.md) 和 `widgets/licenses/`。
