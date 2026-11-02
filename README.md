@@ -1,6 +1,8 @@
 # iCUE Next · Personal UI Demo
 
-> **2026-10-23 新增独立发布：原版 iCUE 传感器小组件。** 修复启动连接慢和首次打开先显示无数据再出现曲线的问题；支持双击打开原版 iCUE。无需运行 Next Demo。[下载小组件](https://github.com/Tomclanc/iCUE-Next-Demo/releases/tag/widgets-2026-10-23) · [安装与源码构建说明](widgets/README.md)。原来的 **15:23 Demo 发布包和效果图保持不变**。以下 Demo 说明中的“不附带小组件/传感器桥”仅指原 UI Demo ZIP；小组件另包提供，官方界面补丁仍未发布。
+> **2026-11-02：原版 iCUE 外观增量修复。** 托盘圆角、透明底配置图标和设备卡片悬停闪黑修复，附 RDP 设备识别与 GPU 测点绑定排查说明。[下载增量包](https://github.com/Tomclanc/iCUE-Next-Demo/releases/tag/appearance-fixes-2026-11-02) · [适用条件、安装与回退](appearance/README.md)。需要已有 CueAppearance 主题模块；不是完整主题安装器。
+
+> **2026-10-23 新增独立发布：原版 iCUE 传感器小组件。** 修复启动连接慢和首次打开先显示无数据再出现曲线的问题；支持双击打开原版 iCUE。无需运行 Next Demo。[下载小组件](https://github.com/Tomclanc/iCUE-Next-Demo/releases/tag/widgets-2026-10-23) · [安装与源码构建说明](widgets/README.md)。原来的 **15:23 Demo 发布包和效果图保持不变**。以下 Demo 说明中的“不附带小组件/传感器桥”仅指原 UI Demo ZIP；小组件另包提供，当时未发布官方界面补丁；现新增的仅为上方所述增量修复。
 
 
 **按我个人审美做的一个 iCUE 界面 demo。**
@@ -9,7 +11,7 @@
 
 这是个人试作，非 CORSAIR 官方项目，也没有得到官方背书。**不作为原版 iCUE 的替代品，日常使用建议优先选择官方原版。**
 
-本次公开的是 **2026-10-20「15:23 保留版」**，后续对原版 iCUE 制作的主题补丁不在这个仓库里。
+本次公开的是 **2026-10-20「15:23 保留版」**，完整的原版主题安装器仍不在此仓库中；2026-11-02 新增的增量修复见上方链接。
 
 [下载界面 Demo](https://github.com/Tomclanc/iCUE-Next-Demo/releases/tag/demo-2026-10-20-1523) · [效果图](#效果图) · [构建说明](#从源码构建)
 
@@ -76,7 +78,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\src\build.ps1
 
 这是按作者自己的审美和硬件环境制作的 demo，不追求功能与原版完全一致，也没有充分的跨设备稳定性测试。截图展示的是这一版的外观，不能当作实时硬件控制、动画逐帧一致或完整设备支持的证明。
 
-本次发布仅整理了源码、说明、效果图及原始主程序；未包含后来制作的官方界面补丁、独立传感器试验版或服务试验版。
+原始 Demo 发布仅包含其源码、说明、效果图及主程序；独立小组件和后续外观增量修复分别位于 widgets 与 appearance 目录，不改变原 Demo 包。
 
 ## 名称与素材
 
